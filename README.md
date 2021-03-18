@@ -12,7 +12,17 @@
 * [RabbitMQ](https://www.rabbitmq.com/)
 
 ## Showcase
+
 [![steve-jobs.png](https://i.postimg.cc/rspf042P/steve-jobs.png)](https://postimg.cc/HcfwFVxw)
+
+## Tests
+
+PHPSpec
+[![phpspec.png](https://i.postimg.cc/j5GdFHqp/phpspec.png)](https://postimg.cc/VrW8SbCg)
+
+Behat
+[![behat.png](https://i.postimg.cc/d0Y2zC3T/behat.png)](https://postimg.cc/qN16Kz8k)
+
 
 ## Installation
 
