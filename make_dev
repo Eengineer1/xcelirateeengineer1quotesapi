@@ -10,6 +10,13 @@ docker-compose up -d
 # For Windows Docker IP can be obtained by, and then updating the system32/drivers/etc/hosts file with symfony.dev name
 #docker network inspect bridge | grep Gateway | grep -o -E '[0-9\.]+'
 
+# Configure hosts file manually (had to configure manually between php & nginx to make sure nginx was accessible for every build)
+ip="docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' container_nginx"
+docker-compose exec php echo "${ip}    symfony.dev" >> /etc/hosts
+
+# Supervisor safe start (made to combat stale sockets)
+docker-compose exec php service supervisor start messenger-consume:*
+
 # App init
 docker-compose exec php composer install
 docker-compose exec php php bin/console doctrine:schema:drop --force

@@ -11,6 +11,9 @@
 * [Kibana](https://www.elastic.co/products/kibana)
 * [RabbitMQ](https://www.rabbitmq.com/)
 
+## Showcase
+[![steve-jobs.png](https://i.postimg.cc/rspf042P/steve-jobs.png)](https://postimg.cc/HcfwFVxw)
+
 ## Installation
 
 1. Everything is done by running `./make_dev` or by double clicking `make_dev` file in UNIX.
