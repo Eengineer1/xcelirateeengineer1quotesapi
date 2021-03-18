@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Build & start docker image
+docker-compose build
+docker-compose up -d
+
+# For UNIX systems the hosts file needs to be updated as such to access the containers, will skip and just log the user automatically in the container for the scope of the build
+#sudo echo $(docker network inspect bridge | grep Gateway | grep -o -E '[0-9\.]+') "symfony.dev" >> /etc/hosts
+
+# For Windows Docker IP can be obtained by, and then updating the system32/drivers/etc/hosts file with symfony.dev name
+#docker network inspect bridge | grep Gateway | grep -o -E '[0-9\.]+'
+
+# App init
+docker-compose exec php composer install
+docker-compose exec php php bin/console doctrine:schema:update --force
+docker-compose exec php php bin/console make:migration
+docker-compose exec php php bin/console doctrine:migrations:migrate
+docker-compose exec php curl -X POST http://symfony.dev/init
+docker-compose exec php echo " You can just curl the app with your favorite author!"
+docker-compose exec php bash
+
+# App init
+#composer install
+#symfony make:migration
+#symfony doctrine:migrations:migrate
+#curl -X POST http://symfony.dev/init
