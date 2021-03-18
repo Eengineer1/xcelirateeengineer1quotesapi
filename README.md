@@ -15,10 +15,6 @@
 
 1. Everything is done by running `./make_dev` or by double clicking `make_dev` file in UNIX.
 
-    ```sh
-    $ cp .env.dist .env && nano .env
-    ```
-
 2. Unit test done with PHPSpec and integration test with Behat, each shown by running `vendor/bin/phpspec run` and `vendor/bin/behat` respectively.
 
 ## How does it work?
